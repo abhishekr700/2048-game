@@ -23,20 +23,22 @@ public class Game2048 {
 	
 	public static void start()  {
 
-	    Player p = getPlayer(); // Player input details
+	    // Player input details
+	    Player p = getPlayer(); 
 
+	    // Desired Board
 	    Scanner s = new Scanner(System.in);
-		System.out.println("Enter board size:"); // Desired Board
+	    System.out.println("Enter board size:"); 
 
-		Board b = new Board(p);
-		b.printboard();
+	    Board b = new Board(p);
+	    b.printboard();
 
-		// To retrieve status of Player according to Board
-		while(b.getStatus() == b.INCOMPLETE){
+	    // To retrieve status of Player according to Board
+	    while(b.getStatus() == b.INCOMPLETE){
 
 		    //Enter desired position
-			System.out.println("Enter the position(left,right,up,down)");
-			String pos = s.next();
+		    System.out.println("Enter the position(left,right,up,down)");
+		    String pos = s.next();
 
 		    try{
 			    b.move(pos);
@@ -44,12 +46,12 @@ public class Game2048 {
 		    }catch(InvalidMoveException e){
 			    System.out.println("Invalid Move !! ");
 		    }
-		}
+	    }
 
-		if(b.getStatus() == b.PLAYERWON){
-			System.out.println("Player Won");
-		}else{
-			System.out.println("GAMEOVER");
-		}
+	    if(b.getStatus() == b.PLAYERWON){
+		    System.out.println("Player Won");
+	    }else{
+		    System.out.println("GAMEOVER");
+	    }
 	}
 }
