@@ -70,7 +70,7 @@ public class Board {
 		}else if(position.equals("right")){
 			rightMove();
 		}else if(position.equals("up")){
-		    upMove();
+		    	upMove();
 		}else if(position.equals("down")){
 			downMove();
 		}else{
@@ -174,27 +174,27 @@ public class Board {
 	    Random ran = new Random(); // Generates Random Number
 
 	    do{
-			no = Math.random() > 0.1 ? 2:4;
+		no = Math.random() > 0.1 ? 2:4;
 			
-			int max = boardsize-1;
-			int min = 0;
+		int max = boardsize-1;
+		int min = 0;
 			
-			i = ran.nextInt(max-min)+1;
-			j = ran.nextInt(max-min+1);
+		i = ran.nextInt(max-min)+1;
+		j = ran.nextInt(max-min+1);
 
-		}while(board[i][j] != 0);
+	    }while(board[i][j] != 0);
 
 	    board[i][j] = no;
 
 	    //Print Board
 	    for( i=0 ; i<boardsize ; i++){
-			System.out.println();
-			for(j = 0 ; j<boardsize ; j++){
+		System.out.println();
+		for(j = 0 ; j<boardsize ; j++){
 			
-					System.out.print(" | "+ board[i][j] +" | ");
+			System.out.print(" | "+ board[i][j] +" | ");
 				
-			}
-			System.out.println();
 		}
+		System.out.println();
+	    }
 	}
 }
