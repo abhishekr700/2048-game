@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Board {
 
-    int[][] board;
+    	int[][] board;
 	Scanner s = new Scanner(System.in);
 	
 	int boardsize = s.nextInt();
