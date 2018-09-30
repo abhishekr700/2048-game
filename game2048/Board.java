@@ -15,13 +15,13 @@ public class Board {
 
 	    this.player = player;
 		
-		board = new int[boardsize][boardsize];
+	    board = new int[boardsize][boardsize];
 
-		for(int i=0 ; i<boardsize ; i++){
-			for(int j=0 ; j<boardsize ; j++){
-				board[i][j] = 0;
-			}
+	    for(int i=0 ; i<boardsize ; i++){
+		for(int j=0 ; j<boardsize ; j++){
+			board[i][j] = 0;
 		}
+	    }
 	}
 
 	// Specifies Status of Player
@@ -33,17 +33,17 @@ public class Board {
 	public int getStatus(){
 
 	    for(int i=0 ; i<boardsize ; i++){
-			for(int j=0 ; j<boardsize ; j++){
-				/* When player reaches 2048, player wins */
-				if(board[i][j] == 1024)
-                {
-                    return PLAYERWON;
-                }
-			}
+		for(int j=0 ; j<boardsize ; j++){
+		    /* When player reaches 2048, player wins */
+		    if(board[i][j] == 1024)
+                    {
+                    	return PLAYERWON;
+                    }
 		}
+	     }
 
-		for(int i=0 ; i<boardsize-1 ; i++){
-			for(int j=0 ; j<boardsize-1 ; j++){
+	     for(int i=0 ; i<boardsize-1 ; i++){
+		for(int j=0 ; j<boardsize-1 ; j++){
 			    /* Whenever 2048 is not made and there are still matching numbers left Game is Incomplete */
 				if(board[i][j] == board[i][j+1] || board[i][j] == board[i+1][j] )
 					return INCOMPLETE;
@@ -63,16 +63,16 @@ public class Board {
 	}
 
 	/* Check for Valid Move */
-	public void move(String pos) throws InvalidMoveException{
+	public void move(String position) throws InvalidMoveException{
 		
-		if(pos.equals("left")){
-			leftm();
-		}else if(pos.equals("right")){
-			rightm();
-		}else if(pos.equals("up")){
-		    upm();
-		}else if(pos.equals("down")){
-				downm();
+		if(position.equals("left")){
+			leftMove();
+		}else if(position.equals("right")){
+			rightMove();
+		}else if(position.equals("up")){
+		    upMove();
+		}else if(position.equals("down")){
+			downMove();
 		}else{
 			InvalidMoveException e = new InvalidMoveException();
 			throw e;
@@ -81,7 +81,7 @@ public class Board {
 	}
 
 	/* Player selects - Left Move */
-	private void leftm(){
+	private void leftMove(){
 
 	    int k=0;
 
@@ -103,7 +103,7 @@ public class Board {
 	}
 
     /* Player selects - Right Move */
-    private void rightm(){
+    private void rightMove(){
 
         int k=boardsize-1;
 
@@ -125,7 +125,7 @@ public class Board {
 	}
 
     /* Player selects - Up Move */
-    private void upm(){
+    private void upMove(){
 		int k=0;
 
         //Check if there is a column in which either matching number is found or empty cell(k,i) before non empty cell(j,i)
@@ -146,7 +146,7 @@ public class Board {
 	}
 
     /* Player selects - Left Move */
-	private void downm(){
+	private void downMove(){
 		int k=boardsize-1;
 
 		//Check if there is a column in which either matching number is found or empty cell(k,i) before non empty cell(j,i)
