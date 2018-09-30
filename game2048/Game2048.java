@@ -47,7 +47,8 @@ public class Game2048 {
 			    System.out.println("Invalid Move !! ");
 		    }
 	    }
-
+	    
+	    // Check status of board for final result
 	    if(b.getStatus() == b.PLAYERWON){
 		    System.out.println("Player Won");
 	    }else{
